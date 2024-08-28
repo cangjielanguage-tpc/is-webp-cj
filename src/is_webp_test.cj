@@ -6,7 +6,7 @@ import std.unittest.*
 import std.unittest.testmacro.*
 
 @Test
-class testFile {
+class TestFile {
     @TestCase
     func testWebp() {
         let filePath: String = "fixture.webp"
@@ -21,7 +21,7 @@ class testFile {
 }
 
 @Test
-class testByteArray {
+class TestByteArray {
     @TestCase
     func testWebp() {
         let bytes: Array<Byte> = [0x52, 0x49, 0x46, 0x46, 0x0, 0x0, 0x0, 0x0, 0x57, 0x45, 0x42, 0x50]
