@@ -3,7 +3,7 @@
 </div>
 
 <p align="center">
-<img alt="" src="https://img.shields.io/badge/release-v0.1.1-brightgreen" style="display: inline-block;" />
+<img alt="" src="https://img.shields.io/badge/release-v0.1.2-brightgreen" style="display: inline-block;" />
 <img alt="" src="https://img.shields.io/badge/cjc-v0.55.3-brightgreen" style="display: inline-block;" />
 <img alt="" src="https://img.shields.io/badge/cjcov-100.0%25-brightgreen" style="display: inline-block;" />
 <img alt="" src="https://img.shields.io/badge/state-孵化-brightgreen" style="display: inline-block;" />
@@ -15,13 +15,14 @@
 ### 1.1 项目特性
 
 1. 判断文件类型是否为 WEBP 图片。
-2. 支持字节数组。
+2. 支持输入流与字节数组。
 
 
 ### 1.2 项目计划
 
 1. 2024 年 9 月发布 0.1.0 版本。
 2. 2024 年 10 月发布 0.1.1 版本。 
+3. 2024 年 10 月发布 0.1.2 版本。 
 
 ## 2 架构
 
@@ -44,6 +45,32 @@
 
 ### 2.2 接口说明
 
+#### 2.2.1 isWebp(inputStream: InputStream)
+
+判断输入流是否为 WEBP 文件。
+
+##### 参数
+
+- `inputStream`: 待判断的输入流。执行后该函数会对传入输入流进行读取，需要注意处理。
+
+##### 返回值
+
+- 如果是 WEBP 文件则返回 `true`，否则返回 `false`。
+
+---
+
+#### 2.2.2 isWebp(iter: Iterable<Byte>)
+
+判断输入流是否为 WEBP 文件。
+
+##### 参数
+
+- `iter` (`Iterable<Byte>`): 待判断的 Iterable 实例。
+
+##### 返回值
+
+- 如果是 WEBP 文件则返回 `true`，否则返回 `false`。
+
 ##  3 使用说明
 
 ### 3.1 编译构建（Win/Linux/Mac）
@@ -54,7 +81,22 @@ cjpm build
 
 ### 3.2 功能示例
 
-#### 3.2.1 判断字节数组是否为 WEBP
+#### 3.2.1 判断输入流是否为 WEBP
+```cangjie
+import is_webp_cj
+import std.fs.*
+
+main() {
+	let file : File = File("fixture.webp", )
+	if (isWebp(bytes)) {
+		println("是WEBP文件")
+	} else {
+		println("不是WEBP文件")
+	}
+}
+```
+
+#### 3.2.2 判断字节数组是否为 WEBP
 ```cangjie
 import is_webp_cj
 import std.fs.*

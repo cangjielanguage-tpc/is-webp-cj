@@ -6,7 +6,24 @@ import std.unittest.*
 import std.unittest.testmacro.*
 
 @Test
-class TestByteArray {
+class InputStreamTest {
+    @TestCase
+    func testWebp() {
+        let filePath: String = "fixture.webp"
+        let inputStream = File(filePath, OpenOption.Open(true, false))
+        @Assert(true, isWebp(inputStream))
+    }
+
+    @TestCase
+    func testPng() {
+        let filePath: String = "fixture.png"
+        let inputStream = File(filePath, OpenOption.Open(true, false))
+        @Assert(false, isWebp(inputStream))
+    }
+}
+
+@Test
+class ByteArrayTest {
     @TestCase
     func testWebp() {
         let filePath: String = "fixture.webp"
