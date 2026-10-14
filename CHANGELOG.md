@@ -1,3 +1,19 @@
+# [1.0.0]
+
+## Feature
+
++ cangjie版本升级至1.2.0
+
+## Bugfix
+
++ 暂无
+
+## Remove
+
++ 暂无
+
+<br>
+
 # [0.1.2]
 
 ## Feature
